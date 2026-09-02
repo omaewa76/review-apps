@@ -27,7 +27,7 @@
     "build:web": "turbo build --filter=web",
     "build:backend": "turbo build --filter=backend",
     "build:packages": "turbo build --filter=./packages/*",
-    "migration:add":"supabase new",
+    "migration:add": "supabase new",
     "migration:up": "supabase migration up",
     "migration:down": "supabase migration down",
     "migration:reset": "supabase db reset",

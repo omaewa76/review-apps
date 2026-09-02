@@ -13,18 +13,9 @@
   ],
   "pipeline": {
     "build": {
-      "dependsOn": [
-        "^build"
-      ],
-      "outputs": [
-        ".next/**",
-        "!.next/cache/**",
-        "dist/**",
-        "build/**"
-      ],
-      "env": [
-        "VITE_*"
-      ]
+      "dependsOn": ["^build"],
+      "outputs": [".next/**", "!.next/cache/**", "dist/**", "build/**"],
+      "env": ["VITE_*"]
     },
     "dev": {
       "cache": false,
@@ -34,34 +25,23 @@
       "cache": false
     },
     "type-check": {
-      "dependsOn": [
-        "^build"
-      ],
+      "dependsOn": ["^build"],
       "cache": true
     },
     "lint": {
-      "dependsOn": [
-        "^build"
-      ],
+      "dependsOn": ["^build"],
       "cache": true,
       "outputs": []
     },
     "lint:fix": {
-      "dependsOn": [
-        "^build"
-      ],
+      "dependsOn": ["^build"],
       "cache": false,
       "outputs": []
     },
     "test": {
-      "dependsOn": [
-        "build"
-      ],
+      "dependsOn": ["build"],
       "cache": true,
-      "inputs": [
-        "src/**/*.test.ts",
-        "src/**/*.test.tsx"
-      ]
+      "inputs": ["src/**/*.test.ts", "src/**/*.test.tsx"]
     }
   }
 }
