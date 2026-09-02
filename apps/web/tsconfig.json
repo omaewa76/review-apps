@@ -1,0 +1,49 @@
+{
+  "extends": "../../tools/typescript/tsconfig.base.json",
+  "compilerOptions": {
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "composite": true,
+    "noEmit": true,
+    "jsx": "react-jsx",
+    "baseUrl": ".",
+    "paths": {
+      "@/*": [
+        "src/*"
+      ],
+      "ui": [
+        "../../packages/ui/src"
+      ],
+      "ui/*": [
+        "../../packages/ui/src/*"
+      ],
+      "shared-types": [
+        "../../packages/shared-types/src"
+      ],
+      "shared-types/*": [
+        "../../packages/shared-types/src/*"
+      ],
+      "shared-utils": [
+        "../../packages/shared-utils/src"
+      ],
+      "shared-utils/*": [
+        "../../packages/shared-utils/src/*"
+      ]
+    }
+  },
+  "include": [
+    "src/**/*",
+    "src/**/*.tsx"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "**/*.test.ts",
+    "**/*.test.tsx"
+  ],
+  "references": [
+    {
+      "path": "./tsconfig.node.json"
+    }
+  ]
+}

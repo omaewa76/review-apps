@@ -1,0 +1,39 @@
+{
+  "name": "shared-utils",
+  "version": "1.0.0",
+  "description": "Shared utility functions for Project Review",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "exports": {
+    ".": {
+      "import": "./src/index.ts",
+      "types": "./src/index.ts"
+    }
+  },
+  "scripts": {
+    "build": "tsc",
+    "clean": "rm -rf dist .turbo",
+    "type-check": "tsc --noEmit",
+    "test": "vitest",
+    "lint": "eslint . --ext .ts",
+    "lint:fix": "eslint . --ext .ts --fix"
+  },
+  "dependencies": {
+    "typescript": "^5.5.4"
+  },
+  "devDependencies": {
+    "vitest": "^1.6.0",
+    "eslint": "^8.57.0",
+    "@typescript-eslint/parser": "^7.18.0",
+    "@typescript-eslint/eslint-plugin": "^7.18.0"
+  },
+  "devEngines": {
+    "node": ">=18.17.0",
+    "pnpm": ">=8.0.0"
+  },
+  "engines": {
+    "node": ">=18.17.0",
+    "pnpm": ">=8.0.0"
+  },
+  "packageManager": "pnpm@8.10.5"
+}

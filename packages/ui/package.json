@@ -1,0 +1,57 @@
+{
+  "name": "ui",
+  "version": "1.0.0",
+  "description": "Shared UI components for Project Review",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "exports": {
+    ".": {
+      "import": "./src/index.ts",
+      "types": "./src/index.ts"
+    },
+    "./styles": {
+      "import": "./src/styles/global.css"
+    }
+  },
+  "sideEffects": [
+    "*.css",
+    "src/styles/*"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "clean": "rm -rf dist .turbo",
+    "type-check": "tsc --noEmit",
+    "test": "vitest",
+    "lint": "eslint . --ext .ts,.tsx",
+    "lint:fix": "eslint . --ext .ts,.tsx --fix"
+  },
+  "peerDependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "dependencies": {
+    "shared-types": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
+    "typescript": "^5.5.4",
+    "vitest": "^1.6.0",
+    "@testing-library/react": "^14.0.0",
+    "@testing-library/jest-dom": "^6.1.5",
+    "eslint": "^8.57.0",
+    "@typescript-eslint/parser": "^7.18.0",
+    "@typescript-eslint/eslint-plugin": "^7.18.0",
+    "eslint-plugin-react-hooks": "^4.6.2",
+    "eslint-plugin-react-refresh": "^0.4.9"
+  },
+  "devEngines": {
+    "node": ">=18.17.0",
+    "pnpm": ">=8.0.0"
+  },
+  "engines": {
+    "node": ">=18.17.0",
+    "pnpm": ">=8.0.0"
+  },
+  "packageManager": "pnpm@8.10.5"
+}

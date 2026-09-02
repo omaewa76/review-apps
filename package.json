@@ -1,0 +1,70 @@
+{
+  "name": "review-apps",
+  "version": "1.0.0",
+  "description": "Review Application",
+  "homepage": "https://github.com/omaewa76/review-apps#readme",
+  "bugs": {
+    "url": "https://github.com/omaewa76/review-apps/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/omaewa76/review-apps.git"
+  },
+  "license": "ISC",
+  "author": "Taukhid Aji Nurwijayadi",
+  "scripts": {
+    "dev": "turbo dev",
+    "build": "turbo build",
+    "start": "turbo start",
+    "lint": "turbo lint",
+    "lint:fix": "turbo lint:fix",
+    "format": "prettier --write \"**/*.{ts,tsx,md,css,json,yaml}\"",
+    "format:check": "prettier --check \"**/*.{ts,tsx,md,css,json,yaml}\"",
+    "clean": "rm -rf node_modules */node_modules */*/node_modules */*/*/node_modules */*-lock* *-lock* */*/*.tsbuildinfo",
+    "prepare": "husky install",
+    "dev:web": "turbo dev --filter=web",
+    "dev:backend": "turbo dev --filter=backend",
+    "build:web": "turbo build --filter=web",
+    "build:backend": "turbo build --filter=backend",
+    "build:packages": "turbo build --filter=./packages/*",
+    "migration:add":"supabase new",
+    "migration:up": "supabase migration up",
+    "migration:down": "supabase migration down",
+    "migration:reset": "supabase db reset",
+    "migration:pull": "supabase db pull",
+    "test": "turbo test",
+    "test:watch": "turbo test -- --watch",
+    "type-check": "turbo type-check",
+    "check": "depcheck"
+  },
+  "devDependencies": {
+    "turbo": "^1.13.3",
+    "prettier": "^3.0.3",
+    "@types/node": "^20.10.0",
+    "husky": "^8.0.3",
+    "lint-staged": "^15.0.2",
+    "eslint": "^8.57.0",
+    "@eslint/js": "^8.57.0",
+    "typescript-eslint": "^7.18.0",
+    "@typescript-eslint/parser": "^7.18.0",
+    "@typescript-eslint/eslint-plugin": "^7.18.0",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-react-hooks": "^4.6.2",
+    "eslint-plugin-react-refresh": "^0.4.9",
+    "typescript": "^5.5.4"
+  },
+  "packageManager": "pnpm@8.10.5",
+  "engines": {
+    "node": ">=18.17.0",
+    "pnpm": ">=8.0.0"
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{json,md,css}": [
+      "prettier --write"
+    ]
+  }
+}

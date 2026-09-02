@@ -1,0 +1,37 @@
+.container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.stars {
+  display: flex;
+  gap: 2px;
+}
+
+.star {
+  color: #d1d5db;
+  line-height: 1;
+}
+
+.star.filled {
+  color: #fbbf24;
+}
+
+.size-sm {
+  font-size: 16px;
+}
+
+.size-md {
+  font-size: 20px;
+}
+
+.size-lg {
+  font-size: 24px;
+}
+
+.label {
+  font-size: 14px;
+  color: #6b7280;
+  font-weight: 500;
+}

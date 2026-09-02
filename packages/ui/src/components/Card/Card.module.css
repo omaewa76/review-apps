@@ -1,0 +1,18 @@
+.card {
+  padding: 20px;
+  border-radius: 12px;
+  background: white;
+  transition: all 0.2s ease;
+}
+
+.variant-default {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+}
+
+.variant-outlined {
+  border: 1px solid #e5e7eb;
+}
+
+.variant-elevated {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
