@@ -18,25 +18,24 @@ CREATE INDEX IF NOT EXISTS idx_reviews_user_name ON reviews(user_name);
 ALTER TABLE reviews ENABLE ROW LEVEL SECURITY;
 
 -- 4. Create RLS Policies
--- Policy untuk PUBLIC READ
 CREATE POLICY "public_can_read_reviews"
 ON reviews FOR SELECT
 TO anon, authenticated
 USING (true);
 
--- Policy untuk INSERT (public)
+-- 5. Policy untuk INSERT (public)
 CREATE POLICY "public_can_insert_reviews"
 ON reviews FOR INSERT
 TO anon, authenticated
 WITH CHECK (true);
 
--- Policy untuk UPDATE (public)
+-- 6. Policy untuk UPDATE (public)
 CREATE POLICY "public_can_update_reviews"
 ON reviews FOR UPDATE
 TO anon, authenticated
 USING (true);
 
--- Policy untuk DELETE (public)
+-- 7. Policy untuk DELETE (public)
 CREATE POLICY "public_can_delete_reviews"
 ON reviews FOR DELETE
 TO anon, authenticated
