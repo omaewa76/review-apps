@@ -15,11 +15,11 @@ export const HomePage: React.FC = () => {
     deleteReview,
     isCreating,
     isUpdating,
-    isDeleting,
     averageRating,
   } = useReviews();
 
   const [editingReviewId, setEditingReviewId] = useState<number | null>(null);
+  const [deletingId, setDeletingId] = useState<number | null>(null);
 
   const handleCreateReview = async (data: CreateReviewInput) => {
     await createReview(data);
@@ -42,7 +42,9 @@ export const HomePage: React.FC = () => {
 
   const handleDelete = async (id: number) => {
     if (confirm('Apakah Anda yakin ingin menghapus review ini?')) {
+      setDeletingId(id);
       await deleteReview(id);
+      setDeletingId(null);
     }
   };
 
@@ -108,7 +110,7 @@ export const HomePage: React.FC = () => {
           reviews={reviews}
           onEdit={handleEdit}
           onDelete={handleDelete}
-          isDeleting={isDeleting}
+          deletingId={deletingId}
         />
       </section>
     </div>

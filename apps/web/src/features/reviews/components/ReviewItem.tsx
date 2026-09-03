@@ -2,7 +2,7 @@ import React from 'react';
 import { Button, Card, StarRating } from 'ui';
 import { formatDate } from 'shared-utils';
 import type { Review } from 'shared-types';
-import { style } from './ReviewItem.module.css';
+import styles from './ReviewItem.module.css';
 
 interface ReviewItemProps {
   review: Review;
@@ -18,29 +18,31 @@ export const ReviewItem: React.FC<ReviewItemProps> = ({
   isDeleting = false,
 }) => {
   return (
-    <Card variant="outlined" className="review-item">
-      <div className="review-header">
-        <div className="review-user">
+    <Card variant="outlined" className={styles.reviewItem}>
+      <div className={styles.reviewHeader}>
+        <div className={styles.reviewUser}>
           <strong>{review.user_name}</strong>
-          <span className="review-date">{formatDate(review.created_at)}</span>
+          <span className={styles.reviewDate}>
+            {formatDate(review.created_at)}
+          </span>
         </div>
         <StarRating rating={review.rating} size="sm" />
       </div>
 
-      <div className="review-project">
+      <div className={styles.reviewProject}>
         <a
           href={review.project_url}
           target="_blank"
           rel="noopener noreferrer"
-          className="project-link"
+          className={styles.projectLink}
         >
           {review.project_url}
         </a>
       </div>
 
-      <p className="review-feedback">{review.feedback}</p>
+      <p className={styles.reviewFeedback}>{review.feedback}</p>
 
-      <div className="review-actions">
+      <div className={styles.reviewActions}>
         <Button variant="secondary" size="sm" onClick={onEdit}>
           Edit
         </Button>
@@ -53,8 +55,6 @@ export const ReviewItem: React.FC<ReviewItemProps> = ({
           {isDeleting ? 'Menghapus...' : 'Hapus'}
         </Button>
       </div>
-
-      <style>{style}</style>
     </Card>
   );
 };
