@@ -9,7 +9,7 @@ try {
   console.error('Failed to initialize Supabase client:', error);
   document.body.innerHTML = `
     <div style="padding: 40px; text-align: center; font-family: sans-serif;">
-      <h1>⚠️ Configuration Error</h1>
+      <h1>Configuration Error</h1>
       <p style="color: #6B7280;">
         Supabase configuration is missing. Please check your environment variables.
       </p>
