@@ -6,8 +6,10 @@
     "composite": true,
     "declaration": true,
     "declarationMap": true,
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    "moduleResolution": "bundler",
+    "types": ["vite/client"]
   },
-  "include": ["src/**/*"],
+  "include": ["src/**/*", "src/**/*.css"],
   "exclude": ["node_modules", "dist", "**/*.test.ts", "**/*.test.tsx"]
 }
