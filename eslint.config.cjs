@@ -109,12 +109,6 @@ module.exports = tseslint.config(
               target: './src/features',
               from: './src/app',
             },
-            {
-              target: './src/features/auth',
-              from: './src/features',
-              except: ['./auth'],
-            },
-            {
               target: './src/features/reviews',
               from: './src/features',
               except: ['./reviews'],
