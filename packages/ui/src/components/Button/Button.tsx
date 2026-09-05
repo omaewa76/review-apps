@@ -1,5 +1,5 @@
 import React from 'react';
-import { styles } from './Button.module.css';
+import styles from './Button.module.css';
 
 export interface ButtonProps {
   variant?: 'primary' | 'secondary' | 'danger' | 'success';

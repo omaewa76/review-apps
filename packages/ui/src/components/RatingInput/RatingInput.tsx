@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { styles } from './RatingInput.module.css';
+import styles from './RatingInput.module.css';
 
 export interface RatingInputProps {
   value: number;
