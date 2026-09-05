@@ -5,6 +5,7 @@ build
 coverage
 *.log
 .DS_Store
-.history
+.history/*
 .venv
-pnpm-lock.yaml
+.qodo
+.agents/*

@@ -14,10 +14,13 @@ module.exports = tseslint.config(
       '**/build/**',
       '**/node_modules/**',
       '**/.turbo/**',
+      '**/.agents/**',
+      '**/.qodo/**',
       '**/coverage/**',
+      '**/.history/**',              
       '**/*.config.cjs',
-      '**/pnpm-lock.yaml',
       '**/tsconfig.tsbuildinfo',
+      '**/*.json',                    
     ],
   },
 
@@ -31,16 +34,18 @@ module.exports = tseslint.config(
 
   // Custom configuration
   {
-    files: ['**/*.{ts,tsx}'],
+    files: ['**/*.{jsx,ts,tsx}'],
     languageOptions: {
       parser: tseslint.parser,
       parserOptions: {
-        project: './tsconfig.json',
+        project: true,
+        tsconfigRootDir: __dirname,
         ecmaVersion: 'latest',
         sourceType: 'module',
         ecmaFeatures: {
           jsx: true,
         },
+        extraFileExtensions: ['.json'],
       },
     },
     plugins: {
@@ -53,12 +58,17 @@ module.exports = tseslint.config(
         version: 'detect',
       },
       'import/resolver': {
-        typescript: true,
+        typescript: {
+          project: ['apps/*/tsconfig.json', 'packages/*/tsconfig.json', 'backend/tsconfig.json'],
+        },
         node: true,
       },
     },
     rules: {
-      // TypeScript - override dari recommended/strict
+      '@typescript-eslint/no-var-requires': 'off', 
+      'no-undef': 'off', 
+
+      // TypeScript
       '@typescript-eslint/no-unused-vars': [
         'error',
         {
@@ -80,6 +90,7 @@ module.exports = tseslint.config(
       '@typescript-eslint/no-floating-promises': 'error',
       '@typescript-eslint/await-thenable': 'error',
       '@typescript-eslint/explicit-function-return-type': 'off',
+      '@typescript-eslint/consistent-type-definitions': ['error', 'interface'], 
 
       // React
       'react-refresh/only-export-components': [
@@ -94,10 +105,14 @@ module.exports = tseslint.config(
         'error',
         {
           zones: [
-            // Mencegah import dari app ke features
             {
               target: './src/features',
               from: './src/app',
+            },
+            {
+              target: './src/features/auth',
+              from: './src/features',
+              except: ['./auth'],
             },
             {
               target: './src/features/reviews',
@@ -153,7 +168,7 @@ module.exports = tseslint.config(
 
   // Override untuk backend
   {
-    files: ['backend/**/*.ts', 'backend/**/*.js'],
+    files: ['backend/**/*.ts'],
     rules: {
       'no-console': 'off',
     },
@@ -165,5 +180,5 @@ module.exports = tseslint.config(
     rules: {
       '@typescript-eslint/no-explicit-any': 'off',
     },
-  }
+  },
 );
